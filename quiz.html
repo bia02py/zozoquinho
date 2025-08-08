@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz do Amor 💖</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilos extras para quiz */
+    #quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #f9eaff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+    }
+    #pergunta {
+      font-weight: 700;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      color: #7c3aed;
+    }
+    #opcoes {
+      list-style: none;
+      padding-left: 0;
+    }
+    #opcoes li {
+      background: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    #opcoes li:hover {
+      background-color: #e0c8ff;
+      border-color: #7c3aed;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 1.1em;
+      font-weight: 700;
+      text-align: center;
+      color: #5b21b6;
+      min-height: 30px;
+    }
+    #botaoReiniciar {
+      display: none;
+      margin-top: 15px;
+      background-color: #7c3aed;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    #botaoReiniciar:hover {
+      background-color: #5b21b6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Quiz dos Namorados 💖</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mensagens.html">Carta Aberta</a></li>
+        <li><a href="galeria.html">Galeria de Fotos</a></li>
+        <li><a href="musicas.html">Nossas Músicas</a></li>
+        <li><a href="dates.html">Ideias de Dates</a></li>
+        <li><a href="quiz.html">Quiz do Namorados</a></li>
+        <li><a href="surpresa.html">Botão Surpresa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="quiz-container">
+      <div id="pergunta"></div>
+      <ul id="opcoes"></ul>
+      <div id="resultado"></div>
+      <button id="botaoReiniciar" onclick="reiniciarQuiz()">Reiniciar Quiz</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Feito com muito amor 💜</p>
+  </footer>
+
+  <script>
+    const quiz = [
+      {
+        pergunta: "Qual foi a data do nosso primeiro beijo?",
+        opcoes: ["14/02/2023", "12/06/2023", "18/03/2023", "10/04/2023"],
+        correta: 2
+      },
+      {
+        pergunta: "Qual foi o primeiro assunto que a gente falou no WhatsApp?",
+        opcoes: ["Escola", "Música", "Série", "Comida"],
+        correta: 1
+      },
+      {
+        pergunta: "Onde foi nosso primeiro encontro?",
+        opcoes: ["Shopping", "Praça", "Sua casa", "Lanchonete do Zé"],
+        correta: 3
+      },
+      {
+        pergunta: "Qual apelido carinhoso a Bia mais usa com o Gustavo?",
+        opcoes: ["Mozão", "Neném", "Vida", "Gugu"],
+        correta: 3
+      },
+      {
+        pergunta: "Qual dessas músicas mais representa a gente?",
+        opcoes: ["Trem Bala", "Te Assumi Pro Brasil", "Nosso Quadro", "Tudo em Você"],
+        correta: 1
+      },
+      {
+        pergunta: "Quem se declarou primeiro?",
+        opcoes: ["Bia", "Gustavo", "Os dois ao mesmo tempo", "Nunca rolou uma declaração real kkkkk"],
+        correta: 1
+      }
+    ];
+
+    let indiceAtual = 0;
+    let pontos = 0;
+
+    const perguntaEl = document.getElementById("pergunta");
+    const opcoesEl = document.getElementById("opcoes");
+    const resultadoEl = document.getElementById("resultado");
+    const botaoReiniciar = document.getElementById("botaoReiniciar");
+
+    function mostrarPergunta() {
+      resultadoEl.innerText = "";
+      botaoReiniciar.style.display = "none";
+      const perguntaAtual = quiz[indiceAtual];
+      perguntaEl.innerText = perguntaAtual.pergunta;
+      opcoesEl.innerHTML = "";
+
+      perguntaAtual.opcoes.forEach((opcao, index) => {
+        const li = document.createElement("li");
+        li.innerText = opcao;
+        li.onclick = () => verificarResposta(index);
+        opcoesEl.appendChild(li);
+      });
+    }
+
+    function verificarResposta(indiceEscolhido) {
+      const correta = quiz[indiceAtual].correta;
+
+      if (indiceEscolhido === correta) {
+        pontos++;
+      }
+
+      indiceAtual++;
+
+      if (indiceAtual < quiz.length) {
+        mostrarPergunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      perguntaEl.innerText = "Resultado do Quiz";
+      opcoesEl.innerHTML = "";
+
+      let mensagem = "";
+      if (pontos <= 2) {
+        mensagem = "Hmmmm... precisa de mais revisão! 😅";
+      } else if (pontos <= 4) {
+        mensagem = "Mandou bem, amor! 😍";
+      } else {
+        mensagem = "Você lembra de tudo! Casaria fácil 💍💖";
+      }
+
+      resultadoEl.innerText = `Você acertou ${pontos} de ${quiz.length} perguntas.\n${mensagem}`;
+      botaoReiniciar.style.display = "inline-block";
+    }
+
+    function reiniciarQuiz() {
+      pontos = 0;
+      indiceAtual = 0;
+      mostrarPergunta();
+      resultadoEl.innerText = "";
+      botaoReiniciar.style.display = "none";
+    }
+
+    mostrarPergunta();
+  </script>
+</body>
+</html>

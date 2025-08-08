@@ -1,0 +1,75 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #f3e6ff, #d9b3ff);
+    color: #4b0082;
+    margin: 0;
+    padding: 20px;
+}
+  
+  
+header {
+    text-align: center;
+    padding: 20px 10px;
+    background-color: #b388ff;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 30px;
+    
+}
+
+/* Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* menos gap para caber melhor */
+    padding-left: 0;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* para não quebrar fora da tela */
+}
+
+nav ul li {
+    /* para garantir que os itens fiquem do tamanho do conteúdo */
+    flex-shrink: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 16px; /* padding um pouco menor para caber melhor */
+    background-color: #7c3aed;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    white-space: nowrap; /* impede quebra do texto */
+}
+
+nav ul li a:hover {
+    background-color: #5b21b6;
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #6b21a8;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 480px) {
+    nav ul {
+        gap: 10px;
+        justify-content: center;
+    }
+    nav ul li a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Botão Surpresa 💜</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #surpresa-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #f9eaff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+      text-align: center;
+    }
+
+    #mensagemSurpresa {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #7c3aed;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.7s ease forwards;
+    }
+
+    button {
+      background-color: #7c3aed;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.6);
+    }
+
+    button:hover {
+      background-color: #5b21b6;
+    }
+
+    img.surpresa-gif {
+      max-width: 250px;
+      border-radius: 15px;
+      margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+    }
+
+    audio {
+      margin-top: 15px;
+      outline: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Botão Surpresa 💜</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mensagens.html">Carta Aberta</a></li>
+        <li><a href="galeria.html">Galeria de Fotos</a></li>
+        <li><a href="musicas.html">Nossas Músicas</a></li>
+        <li><a href="dates.html">Ideias de Dates</a></li>
+        <li><a href="quiz.html">Quiz do Namorados</a></li>
+        <li><a href="surpresa.html">Botão Surpresa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="surpresa-container">
+      <button onclick="mostrarSurpresa()">Clique aqui, amor! 💜</button>
+      <div id="mensagemSurpresa"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Feito com muito amor 💜</p>
+  </footer>
+
+  <script>
+    const surpresas = [
+      {
+        tipo: "texto",
+        conteudo: "Lembra quando você me fez rir tanto que chorei? Foi no dia em que... 😊"
+      },
+      {
+        tipo: "texto",
+        conteudo: "Você sabia que é meu lugar favorito no mundo inteiro? 💜"
+      },
+      {
+        tipo: "gif",
+        conteudo: "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif", // exemplo de gif fofo
+        descricao: "Gif fofo de abraço"
+      },
+      {
+        tipo: "texto",
+        conteudo: "Um trecho da nossa música favorita: 🎵 'Te amo mais que tudo...'"
+      },
+      {
+        tipo: "imagem",
+        conteudo: "fotos/segredinho.jpg",
+        descricao: "Uma foto escondida só para você 😘"
+      },
+      {
+        tipo: "audio",
+        conteudo: "audio/voz_amor.mp3" // você precisa colocar o arquivo na pasta audio/
+      },
+      {
+        tipo: "texto",
+        conteudo: "Curiosidade: Nosso primeiro encontro foi no lugar que eu sempre quis ir! 💖"
+      },
+      {
+        tipo: "texto",
+        conteudo: "Você é a melhor coisa que já me aconteceu. Te amo demais!"
+      }
+    ];
+
+    function limparConteudo() {
+      const container = document.getElementById("mensagemSurpresa");
+      container.innerHTML = "";
+    }
+
+    function mostrarSurpresa() {
+      limparConteudo();
+
+      const container = document.getElementById("mensagemSurpresa");
+      const escolha = surpresas[Math.floor(Math.random() * surpresas.length)];
+
+      switch (escolha.tipo) {
+        case "texto":
+          container.innerText = escolha.conteudo;
+          break;
+
+        case "gif":
+          const gif = document.createElement("img");
+          gif.src = escolha.conteudo;
+          gif.alt = escolha.descricao || "Gif fofo";
+          gif.classList.add("surpresa-gif");
+          container.appendChild(gif);
+          break;
+
+        case "imagem":
+          const img = document.createElement("img");
+          img.src = escolha.conteudo;
+          img.alt = escolha.descricao || "Foto surpresa";
+          img.classList.add("surpresa-gif");
+          container.appendChild(img);
+          break;
+
+        case "audio":
+          const audio = document.createElement("audio");
+          audio.controls = true;
+          audio.src = escolha.conteudo;
+          container.appendChild(audio);
+          audio.play();
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
