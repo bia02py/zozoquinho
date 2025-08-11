@@ -96,33 +96,40 @@
     const quiz = [
       {
         pergunta: "Qual foi a data do nosso primeiro beijo?",
-        opcoes: ["14/02/2023", "12/06/2023", "18/03/2023", "10/04/2023"],
-        correta: 2
+        opcoes: ["14/02/2024", "02/02/2024", "18/03/2023", "02/02/2025"],
+        correta: 1
       },
       {
         pergunta: "Qual foi o primeiro assunto que a gente falou no WhatsApp?",
-        opcoes: ["Escola", "Música", "Série", "Comida"],
+        opcoes: ["Debate", "Supernatural", "Mitski", "Kanye West"],
+        correta: 0
+      },
+
+       {
+        pergunta: "Quem se declarou primeiro?",
+        opcoes: ["Biazoca", "Gustazoco", "Os dois ao mesmo tempo", "Nunca houve uma declaração real"],
         correta: 1
       },
+
       {
-        pergunta: "Onde foi nosso primeiro encontro?",
-        opcoes: ["Shopping", "Praça", "Sua casa", "Lanchonete do Zé"],
-        correta: 3
+        pergunta: "Onde foi nosso primeiro encontro depois da declaração?",
+        opcoes: ["Shopping", "Sena Calama", "Cheirin Bão", "Lanche do Tché"],
+        correta: 2
       },
       {
         pergunta: "Qual apelido carinhoso a Bia mais usa com o Gustavo?",
-        opcoes: ["Mozão", "Neném", "Vida", "Gugu"],
+        opcoes: ["Mozão", "Neném", "Vida", "Zozoco"],
         correta: 3
       },
       {
-        pergunta: "Qual dessas músicas mais representa a gente?",
-        opcoes: ["Trem Bala", "Te Assumi Pro Brasil", "Nosso Quadro", "Tudo em Você"],
-        correta: 1
+        pergunta: "Qual foi o primeiro presente que eu te dei?",
+        opcoes: ["Um anel", "Uma pelúcia", "Uma cartinha", "Uma camisa"],
+        correta: 0
       },
       {
-        pergunta: "Quem se declarou primeiro?",
-        opcoes: ["Bia", "Gustavo", "Os dois ao mesmo tempo", "Nunca rolou uma declaração real kkkkk"],
-        correta: 1
+        pergunta: "Quem disse eu te amo primeiro?",
+        opcoes: ["Ninguém nunca disse...", "Bia", "O emocionado do Gustavo hahahahahah", "Contamos até 3 e falamos juntos"],
+        correta: 2
       }
     ];
 
@@ -171,11 +178,11 @@
 
       let mensagem = "";
       if (pontos <= 2) {
-        mensagem = "Hmmmm... precisa de mais revisão! 😅";
+        mensagem = "Irmão... Quer terminar fala";
       } else if (pontos <= 4) {
-        mensagem = "Mandou bem, amor! 😍";
+        mensagem = "É NÉÉÉÉÉÉÉ 🙄";
       } else {
-        mensagem = "Você lembra de tudo! Casaria fácil 💍💖";
+        mensagem = "Hummmmmmm, ganhou 13 bilhões de beijos e chamegos, parabéns lindoco, eu te amo!!! 💍💖";
       }
 
       resultadoEl.innerText = `Você acertou ${pontos} de ${quiz.length} perguntas.\n${mensagem}`;

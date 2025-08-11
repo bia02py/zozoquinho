@@ -5,8 +5,7 @@ body {
     margin: 0;
     padding: 20px;
 }
-  
-  
+
 header {
     text-align: center;
     padding: 20px 10px;
@@ -14,7 +13,6 @@ header {
     border-radius: 10px;
     color: white;
     margin-bottom: 30px;
-    
 }
 
 /* Menu */
@@ -29,7 +27,6 @@ nav ul {
 }
 
 nav ul li {
-    /* para garantir que os itens fiquem do tamanho do conteúdo */
     flex-shrink: 0;
 }
 
@@ -37,12 +34,12 @@ nav ul li a {
     text-decoration: none;
     color: #fff;
     font-weight: 600;
-    padding: 8px 16px; /* padding um pouco menor para caber melhor */
+    padding: 8px 16px;
     background-color: #7c3aed;
     border-radius: 25px;
     transition: background-color 0.3s ease;
     display: inline-block;
-    white-space: nowrap; /* impede quebra do texto */
+    white-space: nowrap;
 }
 
 nav ul li a:hover {
@@ -54,12 +51,100 @@ main {
     margin: 0 auto;
 }
 
+/* Galeria em grade simples */
+.galeria-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.galeria-grade div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.galeria-grade img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.galeria-grade img:hover {
+    transform: scale(1.05);
+}
+
+.galeria-grade p {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: #4b0082;
+    text-align: center;
+}
+
 footer {
     text-align: center;
     padding: 15px;
     margin-top: 40px;
     font-size: 0.9rem;
     color: #6b21a8;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8); /* fundo escurecido */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 70%;
+  max-height: 60vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px white;
+  object-fit: contain; /* para não deformar a imagem */
+}
+
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  font-size: 1.1rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Responsividade para telas pequenas */
@@ -71,5 +156,13 @@ footer {
     nav ul li a {
         padding: 6px 12px;
         font-size: 0.9rem;
+    }
+
+    .galeria-grade {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .galeria-grade img {
+        height: 140px;
     }
 }

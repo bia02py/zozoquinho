@@ -23,26 +23,67 @@
   </header>
 
   <main>
-    <section class="gallery">
-      <!-- Substitua os caminhos abaixo pelas fotos de vocês -->
-      <figure>
-        <img src="fotos/namorados1.jpg" alt="Nós sorrindo juntos no parque" />
-        <figcaption>Dia lindo no parque, nosso lugar favorito 💜</figcaption>
-      </figure>
-      <figure>
-        <img src="fotos/viagem.jpg" alt="Foto da nossa viagem incrível" />
-        <figcaption>Nossa viagem inesquecível ✈️🌍</figcaption>
-      </figure>
-      <figure>
-        <img src="fotos/jantar.jpg" alt="Jantar romântico" />
-        <figcaption>Jantar à luz de velas 🕯️🍝</figcaption>
-      </figure>
-      <!-- Adicione mais figuras com fotos e legendas -->
+    <section class="galeria-grade">
+      <div>
+        <img src="imagens/flores.jpg" alt="Segundo buquêzinho" onclick="openModal(this)" />
+        <p>O dia que você me deu o meu segundo buquê e fomos no cinema 💐🎞️</p>
+      </div>
+
+      <div>
+        <img src="imagens/grego.jpg" alt="Grego" onclick="openModal(this)" />
+        <p>Nós entregando muito cunt no Grego! 🥳🪩</p>
+      </div>
+
+      <div>
+        <img src="imagens/espaço.jpg" alt="Espaço Alternativo" onclick="openModal(this)" />
+        <p>Pedalando muitoo no Espaço Alternativo  🚲❤️</p>
+      </div>
+
+      <div>
+        <img src="imagens/barraca.jpg" alt="Barraca do Amor" onclick="openModal(this)" />
+        <p>Te amando na barraca do amor! ⛺🧑🏽‍❤️‍💋‍👩🏽💗</p>
+      </div>
+
+      <div>
+        <img src="imagens/vangogh.jpg" alt="Van Gogh" onclick="openModal(this)" />
+        <p>Casal mais fofinho e bonito no Van Gogh 👨‍🎨🎨</p>
+      </div>
+
+      <div>
+        <img src="imagens/tiktok.jpg" alt="Foto no Tiktok" onclick="openModal(this)" />
+        <p>E quando eu fiz escova na sua casa 🐱🪮</p>
+      </div>
     </section>
   </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <span class="modal-close" onclick="closeModal(event)">&times;</span>
+    <img class="modal-content" id="modal-img" />
+    <div class="modal-caption" id="modal-caption"></div>
+  </div>
 
   <footer>
     <p>Feito com muito amor 💜</p>
   </footer>
+
+  <script>
+    function openModal(img) {
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      const captionText = document.getElementById('modal-caption');
+
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      captionText.textContent = img.alt;
+    }
+
+    function closeModal(event) {
+      // Fecha modal se clicar no fundo ou no "x"
+      if(event.target.id === 'modal' || event.target.classList.contains('modal-close')){
+        document.getElementById('modal').style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>

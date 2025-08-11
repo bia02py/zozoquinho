@@ -5,6 +5,197 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ideias de Dates Futuros ✨</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #f3e6ff, #d9b3ff);
+      color: #4b0082;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      padding: 20px 10px;
+      background-color: #b388ff;
+      border-radius: 10px;
+      color: white;
+      margin-bottom: 30px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding-left: 0;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      flex-shrink: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 8px 16px;
+      background-color: #7c3aed;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    nav ul li a:hover {
+      background-color: #5b21b6;
+    }
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    h2 {
+      color: #7c3aed;
+      margin-top: 40px;
+    }
+    /* Lista de ideias */
+    .dates-lista ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .dates-lista li {
+      background: #d9b3ff;
+      margin-bottom: 12px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(124, 58, 237, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+    /* Efeito hover para mudar cor */
+    .dates-lista li:hover {
+      background-color: #c59eff;
+    }
+    /* Estrelas avaliação */
+    .stars {
+      display: flex;
+      gap: 3px;
+      margin-left: 15px;
+    }
+    .star {
+      cursor: pointer;
+      color: #ccc;
+      font-size: 1.3rem;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .star.hover,
+    .star.selected {
+      color: #f5b301;
+    }
+    /* Botão sortear */
+    #sortearBtn {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #7c3aed;
+      border: none;
+      color: white;
+      font-weight: 700;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+    }
+    #sortearBtn:hover {
+      background-color: #5b21b6;
+    }
+    /* Resultado do sorteio */
+    #resultadoSortear {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #4b0082;
+      min-height: 30px;
+    }
+    /* Formulário */
+    form {
+      margin-top: 30px;
+      background: #d9b3ff;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(124, 58, 237, 0.3);
+    }
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    form input[type="text"], form textarea {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    form button {
+      padding: 10px 18px;
+      background-color: #7c3aed;
+      border: none;
+      color: white;
+      font-weight: 700;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #5b21b6;
+    }
+    /* Quiz */
+    .quiz {
+      margin-top: 40px;
+      background: #d9b3ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(124, 58, 237, 0.3);
+    }
+    .quiz label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .quiz select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .quiz button {
+      padding: 12px 20px;
+      background-color: #7c3aed;
+      border: none;
+      color: white;
+      font-weight: 700;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .quiz button:hover {
+      background-color: #5b21b6;
+    }
+    #resultadoQuiz {
+      margin-top: 20px;
+      font-weight: 700;
+      color: #4b0082;
+      font-size: 1.1rem;
+      min-height: 40px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,22 +215,141 @@
 
   <main>
     <section class="dates-lista">
-      <ul>
-        <li>🌸 Piquenique no parque com comidinhas feitas por nós</li>
-        <li>🎬 Maratona de filmes românticos no sofá</li>
-        <li>🍕 Noite de pizza caseira: vamos montar a nossa pizza juntos</li>
-        <li>🌌 Observar as estrelas numa noite tranquila</li>
-        <li>🎡 Dia no parque de diversões, muita diversão garantida!</li>
-        <li>🚶‍♂️ Caminhada pela praia ao pôr do sol</li>
-        <li>📚 Ler juntos aquele livro que a gente ama</li>
-        <li>🎨 Fazer um projeto artístico a quatro mãos</li>
-        <!-- Adicione mais ideias fofas aqui -->
+      <h2>Ideias incríveis para nosso próximo date 💖</h2>
+      <ul id="listaDates">
+        <li data-index="0">🌸 Piquenique no parque com comidinhas feitas por nós
+          <div class="stars"></div>
+        </li>
+        <li data-index="1">🎬 Maratona dos filmes que nunca terminamos
+          <div class="stars"></div>
+        </li>
+        <li data-index="2">🍕 Noite de pizza caseira: vamos montar a nossa pizza juntos
+          <div class="stars"></div>
+        </li>
+        <li data-index="3">🌌 Observar as estrelas numa noite tranquila
+          <div class="stars"></div>
+        </li>
+        <li data-index="4">☕ Um date clássico na cafeteria mais charmosa da cidade
+          <div class="stars"></div>
+        </li>
+        <li data-index="5">🚶‍♂️ Caminhada na praia ao pôr do sol para desacelerar
+          <div class="stars"></div>
+        </li>
+        <li data-index="6">🧖‍♀️ Um dia de spa para relaxar e cuidar de nós
+          <div class="stars"></div>
+        </li>
+        <li data-index="7">🎨 Participar juntos de uma oficina de cerâmica ou argila
+          <div class="stars"></div>
+        </li>
+        <li data-index="8">🍫 Noite de fondue e vinho para aquecer o coração
+          <div class="stars"></div>
+        </li>
+        <li data-index="9">🎤 Karaokê divertido para soltar a voz e rir bastante
+          <div class="stars"></div>
+        </li>
+        <li data-index="10">🎮 Maratona de jogos cooperativos para se divertir a dois
+          <div class="stars"></div>
+        </li>
+        <li data-index="11">📚 Visita a uma livraria e escolher livros um para o outro
+          <div class="stars"></div>
+        </li>
       </ul>
+      
+      <button id="sortearBtn" title="Sortear uma ideia aleatória">🎲 Sortear um Date Aleatório</button>
+      <div id="resultadoSortear" style="white-space: nowrap;"></div>
     </section>
-  </main>
 
-  <footer>
-    <p>Feito com muito amor 💜</p>
-  </footer>
+    <section>
+      <h2>Quer sugerir uma nova ideia de date? 💡</h2>
+      <form id="formNovaIdeia">
+        <label for="novaIdeia">Sua ideia de date:</label>
+        <textarea id="novaIdeia" rows="3" placeholder="Descreva sua ideia aqui..." required></textarea>
+        <button type="submit">Enviar ideia</button>
+      </form>
+      <div id="msgConfirmacao" style="color:green; margin-top:10px;"></div>
+    </section>
+
+  <script>
+    function setupStars() {
+      const lista = document.getElementById('listaDates');
+      lista.querySelectorAll('li').forEach((li) => {
+        const starsDiv = li.querySelector('.stars');
+        for(let i=1; i<=5; i++) {
+          const star = document.createElement('span');
+          star.classList.add('star');
+          star.innerHTML = '★';
+          star.dataset.value = i;
+          starsDiv.appendChild(star);
+        }
+      });
+    }
+
+    function starsEvents() {
+      const lista = document.getElementById('listaDates');
+      lista.querySelectorAll('li').forEach((li) => {
+        const stars = li.querySelectorAll('.star');
+        stars.forEach(star => {
+          star.addEventListener('mouseover', () => highlightStars(stars, star.dataset.value));
+          star.addEventListener('mouseout', () => resetStars(stars));
+          star.addEventListener('click', () => selectStars(stars, star.dataset.value));
+        });
+      });
+    }
+
+    function highlightStars(stars, max) {
+      stars.forEach(star => {
+        star.classList.toggle('hover', star.dataset.value <= max);
+      });
+    }
+    function resetStars(stars) {
+      stars.forEach(star => star.classList.remove('hover'));
+    }
+    function selectStars(stars, max) {
+      stars.forEach(star => {
+        star.classList.toggle('selected', star.dataset.value <= max);
+      });
+    }
+
+    function setupSortear() {
+      const btn = document.getElementById('sortearBtn');
+      const resultado = document.getElementById('resultadoSortear');
+      btn.addEventListener('click', () => {
+        const lista = document.querySelectorAll('#listaDates li');
+        const randomIndex = Math.floor(Math.random() * lista.length);
+        const item = lista[randomIndex].firstChild.textContent.trim();
+        resultado.textContent = `Que tal: ${item} ? `;
+        resultado.scrollIntoView({behavior: 'smooth'});
+      });
+    }
+
+    // Evento para o formulário
+    document.getElementById('formNovaIdeia').addEventListener('submit', function(event){
+      event.preventDefault();
+      const novaIdeia = document.getElementById('novaIdeia').value.trim();
+      if(novaIdeia) {
+        const ul = document.getElementById('listaDates');
+        const li = document.createElement('li');
+        li.textContent = novaIdeia;
+        // Adiciona o container de estrelas
+        const starsDiv = document.createElement('div');
+        starsDiv.classList.add('stars');
+        li.appendChild(starsDiv);
+        ul.appendChild(li);
+        setupStars();
+        starsEvents();
+        this.reset();
+        document.getElementById('msgConfirmacao').textContent = "Ideia adicionada com sucesso! Obrigado pela sugestão 💡";
+        setTimeout(() => {
+          document.getElementById('msgConfirmacao').textContent = '';
+        }, 4000);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setupStars();
+      starsEvents();
+      setupSortear();
+    });
+  </script>
 </body>
 </html>
