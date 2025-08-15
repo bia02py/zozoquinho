@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Botão Surpresa 💜</title>
+  <title>Botão Surpresa 🫶</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     #surpresa-container {
@@ -65,7 +65,7 @@
 </head>
 <body>
   <header>
-    <h1>Botão Surpresa 💜</h1>
+    <h1>Botão Surpresa 🫶</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -81,7 +81,7 @@
 
   <main>
     <div id="surpresa-container">
-      <button onclick="mostrarSurpresa()">Clique aqui, amor! 💜</button>
+      <button onclick="mostrarSurpresa()">Clique aqui, amor da minha vida! 💜</button>
       <div id="mensagemSurpresa"></div>
     </div>
   </main>
@@ -92,40 +92,54 @@
 
   <script>
     const surpresas = [
+
+      {
+        tipo: "video",
+        conteudo: "videos/video1.mp4", // Coloque o caminho do seu vídeo aqui
+      },
+
       {
         tipo: "texto",
-        conteudo: "Lembra quando você me fez rir tanto que chorei? Foi no dia em que... 😊"
+        conteudo: "Oi amoroco, você é a coisinha mais linda do mundo e eu sou completamente apaixonada por você, beijocas! 😽💗"
+      },
+
+      {
+        tipo: "video",
+        conteudo: "videos/video2.mp4",
       },
       {
+        tipo: "video",
+        conteudo: "videos/video3.mp4",
+       },
+      
+      {
         tipo: "texto",
-        conteudo: "Você sabia que é meu lugar favorito no mundo inteiro? 💜"
+        conteudo: "Oiii Zozoquinho Benzoquinho, eu te amo mais que tudo!!! 😸💜"
       },
       {
         tipo: "gif",
-        conteudo: "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif", // exemplo de gif fofo
+        conteudo: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTFiN29raWsxYTM4YmdpYXoxcnB4MTloem9uNm1qMmthb3VqYjkzOSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/6W1nHkLh1RpCa3zXgG/giphy.gif", // exemplo de gif fofo
         descricao: "Gif fofo de abraço"
       },
+
       {
-        tipo: "texto",
-        conteudo: "Um trecho da nossa música favorita: 🎵 'Te amo mais que tudo...'"
+        tipo: "gif",
+        conteudo: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGhteXlqNTM0djN4MDZtaWt6N2g5MTRpbmI4ZW9rYmUzeTRpa3F2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TdL0bbk08WP2S0RMnX/giphy.gif", // exemplo de gif fofo
+        descricao: "Gif fofo de abraço"
       },
+
       {
-        tipo: "imagem",
-        conteudo: "fotos/segredinho.jpg",
-        descricao: "Uma foto escondida só para você 😘"
+        tipo: "gif",
+        conteudo: "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cDJxcjZlNHd6ZDhwMmd4ZXVpYXFycmNjdW1xMjczNWh3NmlubDYzYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/2qs86TQ4O4MxfXSZBg/giphy.gif", // exemplo de gif fofo
+        descricao: "Gif fofo de abraço"
       },
+
       {
-        tipo: "audio",
-        conteudo: "audio/voz_amor.mp3" // você precisa colocar o arquivo na pasta audio/
+        tipo: "gif",
+        conteudo: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGprMW1neTd4czVvYWNwbjQ3OTF4OTBjYWI2c2sxd3JkM2l6ajd4ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/orlWUJwmiAtF5YS5cl/giphy.gif", // exemplo de gif fofo
+        descricao: "Gif fofo de abraço"
       },
-      {
-        tipo: "texto",
-        conteudo: "Curiosidade: Nosso primeiro encontro foi no lugar que eu sempre quis ir! 💖"
-      },
-      {
-        tipo: "texto",
-        conteudo: "Você é a melhor coisa que já me aconteceu. Te amo demais!"
-      }
+    
     ];
 
     function limparConteudo() {

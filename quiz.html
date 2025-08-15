@@ -79,14 +79,31 @@
     </nav>
   </header>
 
-  <main>
-    <div id="quiz-container">
-      <div id="pergunta"></div>
-      <ul id="opcoes"></ul>
-      <div id="resultado"></div>
-      <button id="botaoReiniciar" onclick="reiniciarQuiz()">Reiniciar Quiz</button>
-    </div>
-  </main>
+    <main>
+  <!-- Botão para iniciar o quiz -->
+  <div style="text-align: center; margin-bottom: 20px;">
+    <button id="botaoIniciar" style="
+      background-color: #7c3aed;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease;
+    ">
+      Clique aqui para iniciar o quiz dos namorados 💖 Boa sorte!
+    </button>
+  </div>
+
+  <div id="quiz-container" style="display: none;">
+    <div id="pergunta"></div>
+    <ul id="opcoes"></ul>
+    <div id="resultado"></div>
+    <button id="botaoReiniciar" onclick="reiniciarQuiz()">Reiniciar Quiz</button>
+  </div>
+</main>
 
   <footer>
     <p>Feito com muito amor 💜</p>
@@ -155,6 +172,12 @@
     const opcoesEl = document.getElementById("opcoes");
     const resultadoEl = document.getElementById("resultado");
     const botaoReiniciar = document.getElementById("botaoReiniciar");
+
+    document.getElementById("botaoIniciar").onclick = function() {
+    document.getElementById("botaoIniciar").style.display = "none";
+    document.getElementById("quiz-container").style.display = "block";
+    mostrarPergunta();
+  };
 
     function mostrarPergunta() {
       resultadoEl.innerText = "";
