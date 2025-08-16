@@ -166,3 +166,36 @@ footer {
         height: 140px;
     }
 }
+/* Corrige o sorteio estourando no celular */
+#resultadoSortear {
+  white-space: normal !important; /* deixa o texto quebrar linha */
+  word-wrap: break-word;
+  text-align: center; /* centraliza */
+  margin: 15px auto;
+  max-width: 90%; /* limita para não encostar nas bordas */
+}
+
+/* Corrige a caixa de texto colada na direita */
+form textarea, 
+form input[type="text"] {
+  display: block;
+  margin: 0 auto; /* centraliza no form */
+  width: 95%;     /* ocupa quase toda a largura mas deixa margem */
+  box-sizing: border-box;
+}
+
+/* Pequenos ajustes extras só para mobile */
+@media (max-width: 600px) {
+  main {
+    padding: 0 10px; /* adiciona "respiro" nas laterais */
+  }
+
+  nav ul {
+    gap: 8px;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
