@@ -186,6 +186,15 @@
           container.appendChild(audio);
           audio.play();
           break;
+
+        case "video":
+        const video = document.createElement("video");
+        video.controls = true;
+        video.width = 400; // você pode ajustar o tamanho
+        video.src = escolha.conteudo;
+        container.appendChild(video);
+        video.play();
+        break;
       }
     }
   </script>
