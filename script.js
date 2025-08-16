@@ -26,14 +26,14 @@ switch (escolha.tipo) {
     container.appendChild(audio);
     audio.play();
     break;
-
-  case "video":
+    
+    case "video":
     const video = document.createElement("video");
-    video.src = escolha.conteudo;
     video.controls = true;
-    video.autoplay = true;
-    video.style.maxWidth = "100%";
-    video.style.borderRadius = "15px";
+    video.src = escolha.conteudo;
+    video.classList.add("surpresa-video"); // aplica o CSS acima
     container.appendChild(video);
+    video.play();
     break;
+
 }

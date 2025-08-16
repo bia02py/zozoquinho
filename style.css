@@ -199,3 +199,11 @@ form input[type="text"] {
     padding: 6px 12px;
   }
 }
+/* Adicione no seu <style> */
+#mensagemSurpresa video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+}
